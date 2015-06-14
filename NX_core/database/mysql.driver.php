@@ -13,6 +13,10 @@ class MySQL  {
     public function __construct($config = array()) {
         
     }
+    
+    public function __set($name, $value) {
+        $this->$name = $value;
+    }
 
     public function connect() {
         $this->db = mysql_connect($this->host, $this->user, $this->passwd);
