@@ -2,10 +2,10 @@
 
 namespace NX_framework\NX_core\Router;
 use NX_framework\NX_core\URI\URI;
-class Router {
+class Router extends URI{
 
     public function __construct() {
-        
+        parent::__construct();
     }
 
     public function redirect($param) {

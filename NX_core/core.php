@@ -36,14 +36,6 @@ function class_loader($class_name) {
     }
 }
 
-function __autoload($name) {
-    $full_path = SYS_PATH . $name . '.php';
-    if (file_exists($full_path))
-        require_once $full_path;
-    else {
-        throw new Exception('Can\'t load class ' . $name);
-    }
-}
 
 function get_config($param = '') {
     

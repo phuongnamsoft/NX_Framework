@@ -15,12 +15,14 @@ class Controller {
         $this->session = new Session();
         $this->load = new Loader();
     }
+    
+    
 
 }
 
 namespace NX_framework\NX_core\NX_Controller;
 
-use NX_framework\NX_core\Controller;
+use NX_framework\NX_core\Controller\Controller;
 
 class NX_Controller extends Controller {
 
