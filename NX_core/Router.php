@@ -136,12 +136,16 @@ class URI {
         return isset($this->smt[1]) ? $this->smt[1] : '';
     }
 
+    public function param($param) {
+        
+    }
     public function params() {
-        $params = array();
+        
+        $prs = array();
         for ($i = 2; $i < count($this->smt); $i++) {
-            $params[] = $this->uri[$i];
+            $prs[] = $this->smt[$i];
         }
-        return $params;
+        return $prs;
     }
 
 }

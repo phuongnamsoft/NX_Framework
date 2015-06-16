@@ -33,12 +33,13 @@ class Session {
     }
 
     public function config($param = array()) {
-        
+
     }
 
     public function last_active() {
         return $_SESSION[$this->session_id]['NX_']['last_active'];
     }
+    
     public function session_id() {
         return $this->session_id;
     }

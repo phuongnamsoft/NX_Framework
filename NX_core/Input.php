@@ -47,6 +47,9 @@ class Input {
         }
     }
 
+    public function params() {
+        return $this->uri->params();
+    }
     public function head($param = '') {
         
     }

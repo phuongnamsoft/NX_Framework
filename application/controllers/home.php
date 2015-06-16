@@ -21,10 +21,11 @@ class home extends Controller {
 
     public function index() {
         $this->session->set_data('abc', 'xyz');
+        $this->router->redirect('home');
     }
 
     public function home() {
-        echo $this->session->last_active();
+        print_r($this->input->params());
     }
 
 }
