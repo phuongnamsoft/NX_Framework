@@ -20,12 +20,11 @@ class home extends Controller {
     }
 
     public function index() {
-        $data = array(
-            'data' => 'Hello world',
-            'info' => 'Nguyễn Phương Nam');
-        $this->load->view('index', $data);
-        
+        $this->session->set_data('abc', 'xyz');
+    }
+
+    public function home() {
+        echo $this->session->last_active();
     }
 
 }
-
