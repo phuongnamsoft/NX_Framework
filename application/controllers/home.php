@@ -27,5 +27,13 @@ class home extends Controller {
     public function home() {
         print_r($this->input->params());
     }
+    
+    public function login() {
+        $data = array(
+            'page' => 'login',
+            'data' => 'hello'
+        );
+        $this->load->view('index',$data);
+    }
 
 }

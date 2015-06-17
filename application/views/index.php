@@ -1,1 +1,1 @@
-<?php $this->load->view('login',$data);?>
+<?php $this->load->view('ddddd',$page);?>

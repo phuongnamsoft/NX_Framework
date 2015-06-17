@@ -42,20 +42,65 @@ class Exceptions {
         
     }
 
-    public function show_404() {
-        
+    public function show_404($filename) {
+        $data = array(
+        'error_code' => '404',
+        'error_title' => '404 - Not Found',
+        'error_message' => "The requested URL was not found on this server.",
+        'time' => date('l jS \of F Y h:i:s A'),
+        'filename' => $filename
+        );
+        $this->template($data);
     }
 
     public function show_500() {
-        
+        $data = array(
+            'error_code' => '500',
+            'error_title' => '500 - Internal Server Error',
+            'error_message' => "The server encountered an internal error or misconfiguration and was unable to complete your request",
+            'time' => date('l jS \of F Y h:i:s A')
+        );
     }
 
     public function show_error($param) {
         
     }
-    
+
     public function _write_log($param) {
         
+    }
+
+    public function template($param = array()) {
+        @extract($param);
+        echo "
+            <html>
+            <head>
+                    <title>
+                            $error_title
+                    </title>
+
+                    <style>
+                    * { font-family: verdana; font-size: 15pt; COLOR: gray; }
+                    b { font-weight: bold; }
+                    table { height: 50%; border: 1px solid gray;}
+                    td { text-align: center; padding: 25;}
+
+                    </style>
+            </head>
+            <body>
+            <center>
+            <br><br><br><br>
+                    <table>
+                    <tr><td><b>$error_title</b></td></tr>
+                    <tr><td>$error_message</td></tr>
+                    <tr><td style='font-size: 8pt'>Filename: $filename.php  Date: $time</td></tr>
+                    </table>
+            <br><br>
+
+            </center>
+            </body>
+
+            </html>";
     }
 
 }

@@ -50,6 +50,12 @@ class Input {
     public function params() {
         return $this->uri->params();
     }
+
+    public function param($param) {
+        $param +=2;
+        return $this->uri->segment($param);
+    }
+
     public function head($param = '') {
         
     }

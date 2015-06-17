@@ -21,7 +21,7 @@ class Session {
     public function __construct() {
         session_start();
         $this->session_id = session_id();
-        if (!is_array($_SESSION[$this->session_id]))
+        if (!isset($_SESSION[$this->session_id]))
             $_SESSION[$this->session_id] = array();
         if (!isset($_SESSION[$this->session_id]['NX_'])) {
             $_SESSION[$this->session_id]['NX_'] = array(
@@ -33,7 +33,7 @@ class Session {
     }
 
     public function config($param = array()) {
-
+        
     }
 
     public function last_active() {
