@@ -20,12 +20,12 @@ class home extends Controller {
     }
 
     public function index() {
-        $this->session->set_data('abc', 'xyz');
-        $this->router->redirect('home');
+        echo $this->database();
+        
     }
 
     public function home() {
-        print_r($this->input->params());
+        $this->input->params();
     }
     
     public function login() {

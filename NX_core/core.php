@@ -1,5 +1,18 @@
 <?php
+function __autoload($name) {
+    $parts = explode('\\', $name);
+    $full_path = SYS_PATH . end($parts) . '.php';
+    if (file_exists($full_path))
+        require_once $full_path;
+    else {
+        throw new Exception('Can\'t load class ' . $name);
+    }
+}
 
+function get_instance() {
+    return NX_framework\NX_core\Controller\Controller::$instance;
+}
+$nx = get_instance();
 function array2object($param = array()) {
     if (!is_array($param)) {
         return FALSE;
@@ -35,6 +48,7 @@ function class_loader($class_name) {
         return FALSE;
     }
 }
+
 
 
 function get_config($param = '') {

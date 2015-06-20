@@ -6,15 +6,7 @@ class bootstraper {
 
 require 'core.php';
 
-function __autoload($name) {
-    $parts = explode('\\', $name);
-    $full_path = SYS_PATH . end($parts) . '.php';
-    if (file_exists($full_path))
-        require_once $full_path;
-    else {
-        throw new Exception('Can\'t load class ' . $name);
-    }
-}
+
 use NX_framework\NX_core\Router\Router;
 $route = new Router();
 $controller = $route->controller();

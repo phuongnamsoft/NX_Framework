@@ -11,6 +11,7 @@ use NX_framework\NX_core\Exceptions\Exceptions;
 class Controller {
 
     static $instance;
+    public $load;
 
     public function __construct() {
         $this->exception = new Exceptions();
@@ -18,6 +19,14 @@ class Controller {
         $this->input = new Input();
         $this->session = new Session();
         $this->load = new Loader();
+    }
+
+    public function __call($name, $arguments) {
+        $this->$name = $this->load->$name();
+    }
+
+    public static function &get_instance() {
+        return self::$instance;
     }
 
 }

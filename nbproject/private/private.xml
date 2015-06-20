@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/NX_Framework/application/views/login.php</file>
-            <file>file:/C:/xampp/htdocs/NX_Framework/application/views/index.php</file>
-            <file>file:/C:/xampp/htdocs/NX_Framework/NX_core/Session.php</file>
-            <file>file:/C:/xampp/htdocs/NX_Framework/NX_core/Model.php</file>
-            <file>file:/C:/xampp/htdocs/NX_Framework/NX_core/Router.php</file>
-            <file>file:/C:/xampp/htdocs/NX_Framework/NX_core/core.php</file>
-            <file>file:/C:/xampp/htdocs/NX_Framework/application/controllers/home.php</file>
-            <file>file:/C:/xampp/htdocs/NX_Framework/NX_core/Input.php</file>
-            <file>file:/C:/xampp/htdocs/NX_Framework/NX_core/Loader.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
