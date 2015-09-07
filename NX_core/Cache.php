@@ -87,23 +87,12 @@ class CSSCache {
 
 class PHPCache {
 
-    //-- Tên biến mặc định khi tạo dữ liệu PSON
-    //
-	var $strDataName = 'strPsonData';
-    //-- Ký hiệu để xuống hàng
-    //-- Thiết lập bằng rỗng nếu muốn tiết kiệm bộ nhớ, nhưng sẽ khó đọc...
-    //
-	var $chrBreak = "\n";
-    //-- Ký hiệu để đẩy tab
-    //-- Thiết lập bằng rỗng nếu muốn tiết kiệm bộ nhớ, nhưng sẽ khó đọc...
-    //
-	var $chrTab = "\t";
+    var $strDataName = 'strPsonData';
+    var $chrBreak = "\n";
+    var $chrTab = "\t";
     var $story = false;
 
-    //-- Construction, truyền biến để thay đổi tên biến mặc định của dữ liệu PSON nếu thích
-    //-- Gọi khởi tạo theo dạng: $P = new PSON('my_pson_data');
-    //
-	function PSON($strVar = '') {
+    function PSON($strVar = '') {
         if ($strVar)
             $this->strDataName = $strVar;
     }
@@ -124,10 +113,7 @@ class PHPCache {
         return str_replace(array('"', "'", '\\'), array('&quot;', '&#39;', '&#92;'), $strText);
     }
 
-    //-- Chuyển biến dạng array thành một chuỗi có khai báo giá trị đúng như biến mảng
-    //-- Ví dụ: $a = array(1, 2, 3); => $data = "array(1, 2, 3);";
-    //
-function _pson_arr2str($arrVar, $intLevel = 0) {
+    function _pson_arr2str($arrVar, $intLevel = 0) {
         if (!is_array($arrVar))
             return false;
 
@@ -137,7 +123,6 @@ function _pson_arr2str($arrVar, $intLevel = 0) {
 
         foreach ($arrVar as $strKey => $mixVal) {
 
-
             if (is_array($mixVal)) {
                 $strHtml .= $strTab . $this->chrTab . (is_int($strKey) ? '\'' . $strKey . '\' => ' : '\'' . $this->encode_pgc($strKey) . '\' => ') . $this->_pson_arr2str($mixVal, ++$intLevel);
                 --$intLevel;
@@ -145,7 +130,6 @@ function _pson_arr2str($arrVar, $intLevel = 0) {
                 if (!is_int($strKey)) {
                     $strHtml .= $strTab . $this->chrTab . '\'' . $this->encode_pgc($strKey) . '\' => \'' . $this->encode_pgc($mixVal) . '\',' . $this->chrBreak;
                 } else {
-
                     $strHtml .= $strTab . $this->chrTab . '\'' . $strKey . '\' => \'' . $this->encode_pgc($mixVal) . '\',' . $this->chrBreak;
                 }
             }
@@ -158,7 +142,6 @@ function _pson_arr2str($arrVar, $intLevel = 0) {
         } else {
             $strHtml = '$' . $this->strDataName . ' = ' . $strHtml . ';';
         }
-
         return $strHtml;
     }
 
@@ -166,9 +149,7 @@ function _pson_arr2str($arrVar, $intLevel = 0) {
         return $this->_pson_arr2str($arrVar);
     }
 
-    //-- Đọc file dữ liệu và trả về biến mảng
-    //
-	function pson_load($strFileName) {
+    function pson_load($strFileName) {
         if (file_exists($strFileName))
             include $strFileName;
         else
