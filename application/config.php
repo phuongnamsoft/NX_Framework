@@ -5,6 +5,7 @@ $config = array(
     'admin_email' => 'phuongnam@phuongnam.org',
     'assets_folder' => 'assets',
     'default_controller' => 'home',
+    'default_method' => 'index',
     '404_override' => '',
 );
 
