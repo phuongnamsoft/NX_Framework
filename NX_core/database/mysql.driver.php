@@ -38,11 +38,12 @@ class MySQL {
     public function select($query) {
         $result = mysql_query($query, self::$db_link);
         $result_array = array();
-        while ($row = mysql_fetch_assoc($result)) {
-            $result_array[] = $row;
+        if ($result) {
+            while ($row = mysql_fetch_assoc($result)) {
+                $result_array[] = $row;
+            }
         }
-        $this->result_array = $result_array;
-        return $this->result_array;
+        return $result_array;
     }
 
     public function object() {
