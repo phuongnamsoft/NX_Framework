@@ -19,15 +19,15 @@ class MySQLi {
     }
 
     public function connect() {
-        self::$db_link = new mysqli($this->hostname, $this->username, $this->password);
-        mysql_select_db($this->database, self::$db_link);
-        mysql_set_charset($this->charset, self::$db_link);
+        self::$db_link = mysqli_connect($this->hostname, $this->username, $this->password);
+        mysqli_select_db($this->database, self::$db_link);
+        mysqli_set_charset($this->charset, self::$db_link);
     }
 
     private function tableExists($table) {
-        $tablesInDb = mysql_query('SHOW TABLES FROM ' . $this->database . ' LIKE "' . $table . '"', self::$db_link);
+        $tablesInDb = mysqli_query('SHOW TABLES FROM ' . $this->database . ' LIKE "' . $table . '"', self::$db_link);
         if ($tablesInDb) {
-            if (mysql_num_rows($tablesInDb) == 1) {
+            if (mysqli_num_rows($tablesInDb) == 1) {
                 return true;
             } else {
                 return false;
@@ -36,33 +36,34 @@ class MySQLi {
     }
 
     public function select($query) {
-        $result = mysql_query($query, self::$db_link);
+        $result = mysqli_query($query, self::$db_link);
         $result_array = array();
-        while ($row = mysql_fetch_assoc($result)) {
-            $result_array[] = $row;
+        if ($result) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $result_array[] = $row;
+            }
         }
-        $this->result_array = $result_array;
-        return $this->result_array;
+        return $result_array;
     }
 
-    public function object() {
-        
+    public function to_object($data) {
+        return array2object($data);
     }
 
     public function insert($query) {
-        mysql_query($query, self::$db_link);
-        //return mysql_affected_rows(); //Dung de thong bao co su thay doi cua cac dong
-        return mysql_insert_id(self::$db_link);
+        mysqli_query($query, self::$db_link);
+        //return mysqli_affected_rows(); //Dung de thong bao co su thay doi cua cac dong
+        return mysqli_insert_id(self::$db_link);
     }
 
     public function delete($query) {
-        mysql_query($query, self::$db_link);
-        return mysql_affected_rows(self::$db_link);
+        mysqli_query($query, self::$db_link);
+        return mysqli_affected_rows(self::$db_link);
     }
 
     public function update($query) {
-        mysql_query($query, self::$db_link);
-        return mysql_affected_rows(self::$db_link);
+        mysqli_query($query, self::$db_link);
+        return mysqli_affected_rows(self::$db_link);
     }
 
 }
@@ -74,4 +75,3 @@ class data_query extends MySQLi {
     }
 
 }
-
