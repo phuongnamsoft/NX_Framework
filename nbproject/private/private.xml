@@ -2,6 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/opt/lampp/htdocs/nx_framework/NX_core/core.php</file>
+            <file>file:/opt/lampp/htdocs/nx_framework/NX_core/Cache.php</file>
+            <file>file:/opt/lampp/htdocs/nx_framework/NX_core/Loader.php</file>
+            <file>file:/opt/lampp/htdocs/nx_framework/NX_core/Security.php</file>
+            <file>file:/opt/lampp/htdocs/nx_framework/NX_core/database/mysqli.driver.php</file>
+            <file>file:/opt/lampp/htdocs/nx_framework/NX_core/Cookie.php</file>
+            <file>file:/opt/lampp/htdocs/nx_framework/NX_core/Exceptions.php</file>
+            <file>file:/opt/lampp/htdocs/nx_framework/index.php</file>
+            <file>file:/opt/lampp/htdocs/nx_framework/application/config.php</file>
+            <file>file:/opt/lampp/htdocs/nx_framework/NX_core/database/mysql.driver.php</file>
+            <file>file:/opt/lampp/htdocs/nx_framework/NX_core/Input.php</file>
+            <file>file:/opt/lampp/htdocs/nx_framework/application/controllers/home.php</file>
+            <file>file:/opt/lampp/htdocs/nx_framework/NX_core/bootstraper.php</file>
+        </group>
     </open-files>
 </project-private>
