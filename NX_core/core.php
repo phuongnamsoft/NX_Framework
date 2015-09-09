@@ -57,7 +57,7 @@ function class_loader($class_name) {
 
 function include_ex($file) {
     if (file_exists($file)) {
-        include $file;
+        @include $file;
     } else {
         throw new Exception;
     }
@@ -65,7 +65,7 @@ function include_ex($file) {
 
 function include_once_ex($file) {
     if (file_exists($file)) {
-        include_once $file;
+        @include_once $file;
     } else {
         throw new Exception;
     }

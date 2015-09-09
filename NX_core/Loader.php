@@ -7,20 +7,24 @@ use NX_framework\NX_core\Exceptions\Exceptions;
 class Loader {
 
     protected $config;
-    protected $databases;
+    protected $database_connections;
     protected $exception;
     public $db;
 
     public function __construct() {
         $this->exception = new Exceptions();
+        $this->load_config();
+    }
+
+    public function load_config() {
         $config_file = APP_PATH . DIRECTORY_SEPARATOR . "config.php";
         if (file_exists($config_file)) {
             require_once $config_file;
+            $this->config = $config;
+            $this->database_connections = $databases;
         } else {
             $this->exception->show_500();
         }
-        $this->config = $config;
-        $this->databases = $databases;
     }
 
     public function model($model, $model_name = '') {
@@ -58,9 +62,14 @@ class Loader {
         return $output;
     }
 
-    public function database($param = 'default') {
-        if (isset($this->databases[$param])) {
-            $this->db = $this->databases[$param];
+    public function database($param = 'default', $return_instance = FALSE) {
+        $data_type = array('mysql', 'mysqli', 'sqlite', 'postgresql', 'pdo');
+        if (isset($this->database_connections[$param])) {
+            $database_connection = $this->database_connections[$param];
+            if (in_array($database_connection['type'], $data_type)) {
+                $driver_file = SYS_PATH . DIRECTORY_SEPARATOR . 'database' .DIRECTORY_SEPARATOR . $database_connection['type'] . '.driver.php';
+                require_once_ex($driver_file);
+            }
         }
         return $this->db;
     }
