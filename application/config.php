@@ -14,7 +14,7 @@ $databases = array(
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => '',
+        'database' => 'test',
         'charset' => 'UTF-8',
         'type' => 'mysql',
     ),

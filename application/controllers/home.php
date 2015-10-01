@@ -21,19 +21,22 @@ class home extends Controller {
 
     public function index() {
         echo $this->database();
-        
     }
 
     public function home() {
         $this->input->params();
     }
-    
+
+    public function form() {
+        $this->load->view('form');
+    }
+
     public function login() {
         $data = array(
             'page' => 'login',
             'data' => 'hello'
         );
-        $this->load->view('index',$data);
+        $this->load->view('index', $data);
     }
 
 }

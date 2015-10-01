@@ -8,10 +8,15 @@ class MySQLi {
     private $password;
     private $database;
     private $charset;
+    private $type;
     static $db_link;
 
     public function __construct($config = array()) {
-        
+        if (is_array($config) && !empty($config)) {
+            foreach ($config as $key => $value) {
+                $this->$key = $value;
+            }
+        }
     }
 
     public function __set($name, $value) {
@@ -52,7 +57,7 @@ class MySQLi {
 
     public function insert($query) {
         mysqli_query($query, self::$db_link);
-        //return mysqli_affected_rows(); //Dung de thong bao co su thay doi cua cac dong
+        //return mysqli_affected_rows();
         return mysqli_insert_id(self::$db_link);
     }
 

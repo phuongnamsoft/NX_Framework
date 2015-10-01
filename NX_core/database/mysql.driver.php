@@ -52,7 +52,7 @@ class MySQL {
 
     public function insert($query) {
         mysql_query($query, self::$db_link);
-        //return mysql_affected_rows(); //Dung de thong bao co su thay doi cua cac dong
+        //return mysql_affected_rows();
         return mysql_insert_id(self::$db_link);
     }
 

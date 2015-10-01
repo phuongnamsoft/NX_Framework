@@ -13,10 +13,8 @@ class Router extends URI{
         header('Location: ' . $param);
     }
 
-
     public function response_code($code) {
         if ($code !== NULL) {
-
             switch ($code) {
                 case 100: $text = 'Continue';
                     break;
@@ -106,8 +104,7 @@ class Router extends URI{
 
             $code = (isset($GLOBALS['http_response_code']) ? $GLOBALS['http_response_code'] : 200);
         }
-    }
-
+        }
 }
 namespace NX_framework\NX_core\URI;
 class URI {
